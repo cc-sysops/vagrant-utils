@@ -6,7 +6,7 @@ A collection of Vagrant-related utilities to assist your workflow
 
 The annoying thing about using vagrant with a chef server is the fact that it will auto-register the node/client, but won't remove it when you're done. This is the solution we use.
 
-###Usage
+###Generate Unique Nodes
 
 Copy the node.rb and Vagrantfile into the .vagrant.d folder within your home directory. This Vagrantfile acts globally on any box using chef-client provisioning.  If you already have a global Vagrantfile, simply add the following to the top.
 
@@ -58,3 +58,6 @@ An example of provisioning:
 
 **getNode:** This will generate a unique node name based on the pattern: **boxname-username-timestamp**
 
+###Remove ‘dem Nodes
+
+While the above script will avoid conflicts in node/client registration by using a new name every time you destroy a box, you will soon find your Chef served jam-packed with old boxes you’ve long since destroyed. Because destroying nodes/clients requires you to have knife configured on your machine, it isn’t an ideal solution for most developers. That’s why we wrote a script you can add to your crontab to periodically delete the old copies. Simply upload the remove_nodes.sh file to your Chef server (or any other computer with knife configured) and set it up as you would any other cron job.
