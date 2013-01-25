@@ -8,7 +8,7 @@ The annoying thing about using vagrant with a chef server is the fact that it wi
 
 ###Generate Unique Nodes
 
-Copy the node.rb and Vagrantfile into the .vagrant.d folder within your home directory. This Vagrantfile acts globally on any box using chef-client provisioning.  If you already have a global Vagrantfile, simply add the following to the top.
+Copy the **node.rb** and **Vagrantfile** into the **.vagrant.d** folder within your home directory. This Vagrantfile acts globally on any box using chef-client provisioning.  If you already have a global Vagrantfile, simply add the following to the top.
 
 ```ruby
 
@@ -52,7 +52,7 @@ An example of provisioning:
 
 **$boxes:** Include the machines you’re provisioning as an array. (Used in the node name)
 
-**$chefserver:** Modify the variable in the node.rb file if you always use the same server, or simply include the string as you normally do.
+**$chefserver:** Modify the variable in the **node.rb** file if you always use the same server, or simply include the string as you normally do.
 
 **$home:** Developing on multiple platforms? This will always grab the correct path so you can use the same Vagrantfile in Mac/Windows/Linux environments.
 
@@ -60,4 +60,4 @@ An example of provisioning:
 
 ###Remove ‘dem Nodes
 
-While the above script will avoid conflicts in node/client registration by using a new name every time you destroy a box, you will soon find your Chef server jam-packed with old boxes you’ve long since destroyed. Because destroying nodes/clients requires you to have knife configured on your machine, it isn’t an ideal solution for most developers. That’s why we wrote a script you can add to your crontab to periodically delete the old copies. Simply upload the remove_nodes.sh file to your Chef server (or any other computer with knife configured) and set it up as you would any other cron job.
+While the above script will avoid conflicts in node/client registration by using a new name every time you destroy a box, you will soon find your Chef server jam-packed with old boxes you’ve long since destroyed. Because destroying nodes/clients requires you to have knife configured on your machine, it isn’t an ideal solution for most developers. That’s why we wrote a script you can add to your crontab to periodically delete the old copies. Simply upload the **remove_nodes.sh** file to your Chef server (or any other computer with knife configured) and set it up as you would any other cron job.
